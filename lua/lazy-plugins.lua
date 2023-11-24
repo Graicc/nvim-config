@@ -51,6 +51,7 @@ require('lazy').setup({
 
   -- Useful plugin to show you pending keybinds.
   { 'folke/which-key.nvim',  opts = {} },
+
   {
     -- Adds git related signs to the gutter, as well as utilities for managing changes
     'lewis6991/gitsigns.nvim',
@@ -90,28 +91,20 @@ require('lazy').setup({
     },
   },
 
+  -- Colors
   {
     -- Theme inspired by Atom
     'navarasu/onedark.nvim',
-    --   priority = 1000,
-    --   config = function()
-    --     vim.cmd.colorscheme 'onedark'
-    --   end,
   },
-
   "rebelot/kanagawa.nvim",
   {
-    priority = 1000,
     "nyoom-engineering/oxocarbon.nvim",
+    priority = 1000,
     config = function()
       vim.cmd.colorscheme 'oxocarbon'
     end
   },
-  {
-    "folke/tokyonight.nvim",
-    lazy = false,
-    opts = {},
-  },
+  { "folke/tokyonight.nvim", },
 
   {
     -- Set lualine as statusline
@@ -137,7 +130,7 @@ require('lazy').setup({
   },
 
   -- "gc" to comment visual regions/lines
-  { 'numToStr/Comment.nvim', opts = {} },
+  { 'numToStr/Comment.nvim',  opts = {} },
 
   -- Fuzzy Finder (files, lsp, etc)
   {
@@ -179,6 +172,17 @@ require('lazy').setup({
     "windwp/nvim-autopairs",
     event = "InsertEnter",
     opts = {} -- this is equalent to setup({}) function
+  },
+
+  -- File browser
+  {
+    'stevearc/oil.nvim',
+    opts = {},
+    -- Optional dependencies
+    dependencies = { "nvim-tree/nvim-web-devicons" },
+    keys = {
+      { "-", "<cmd> Oil <cr>", desc = "Open parent directory" }
+    }
   },
 
   -- NOTE: The import below can automatically add your own plugins, configuration, etc from `lua/custom/plugins/*.lua`
