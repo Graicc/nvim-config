@@ -14,10 +14,13 @@ vim.o.mouse = 'a'
 -- Sync clipboard between OS and Neovim.
 --  Remove this option if you want your OS clipboard to remain independent.
 --  See `:help 'clipboard'`
-vim.o.clipboard = 'unnamedplus'
+-- vim.o.clipboard = 'unnamedplus'
 
 -- Enable break indent
 vim.o.breakindent = true
+
+-- 4 space tab
+vim.o.tabstop = 4
 
 -- Save undo history
 vim.o.undofile = true
@@ -38,5 +41,23 @@ vim.o.completeopt = 'menuone,noselect'
 
 -- NOTE: You should make sure your terminal supports this
 vim.o.termguicolors = true
+
+-- Folding with TreeSitter
+vim.opt.foldenable = false
+vim.opt.foldmethod = 'expr'
+vim.opt.foldexpr = 'v:lua.vim.treesitter.foldexpr()'
+function CustomFoldText()
+  local line = vim.fn.getline(vim.v.foldstart)
+
+  local line_count = vim.v.foldend - vim.v.foldstart + 1
+
+  return line .. ": " .. line_count .. " lines"
+end
+
+vim.opt.foldtext = "v:lua.CustomFoldText()"
+vim.opt.fillchars = { eob = "-", fold = " " }
+
+-- Colorsheme
+vim.g.colors_name = "oxocarbon"
 
 -- vim: ts=2 sts=2 sw=2 et

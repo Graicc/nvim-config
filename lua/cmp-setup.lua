@@ -11,8 +11,9 @@ cmp.setup {
       luasnip.lsp_expand(args.body)
     end,
   },
+  preselect = 'none',
   completion = {
-    completeopt = 'menu,menuone,noinsert'
+    completeopt = 'menu,menuone,noinsert,noselect'
   },
   mapping = cmp.mapping.preset.insert {
     ['<C-n>'] = cmp.mapping.select_next_item(),
@@ -22,11 +23,11 @@ cmp.setup {
     ['<C-Space>'] = cmp.mapping.complete {},
     ['<CR>'] = cmp.mapping.confirm {
       behavior = cmp.ConfirmBehavior.Replace,
-      select = true,
+      select = false,
     },
     ['<Tab>'] = cmp.mapping(function(fallback)
       if cmp.visible() then
-        cmp.select_next_item()
+        cmp.select_next_item({ behavior = cmp.SelectBehavior.Insert })
       elseif luasnip.expand_or_locally_jumpable() then
         luasnip.expand_or_jump()
       else
