@@ -77,7 +77,7 @@ require('cmp-setup')
 
 if vim.g.neovide then
   -- Put anything you want to happen only in Neovide here
-  vim.o.guifont = "Fira Code:h12" -- text below applies for VimScript
+  vim.o.guifont = "FiraCode Nerd Font,Fira Code:h12" -- text below applies for VimScript
 end
 
 -- The line beneath this is called `modeline`. See `:help modeline`
