@@ -57,7 +57,4 @@ end
 vim.opt.foldtext = "v:lua.CustomFoldText()"
 vim.opt.fillchars = { eob = "-", fold = " " }
 
--- Colorsheme
-vim.g.colors_name = "oxocarbon"
-
 -- vim: ts=2 sts=2 sw=2 et

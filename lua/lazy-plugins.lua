@@ -92,20 +92,41 @@ require('lazy').setup({
   },
 
   -- Colors
+  'navarasu/onedark.nvim',
   {
-    -- Theme inspired by Atom
-    'navarasu/onedark.nvim',
+    "rebelot/kanagawa.nvim",
+    opts = {
+      commentStyle = { italic = false },
+      keywordStyle = { italic = false },
+      statementStyle = { bold = false },
+    }
   },
-  "rebelot/kanagawa.nvim",
+  "nyoom-engineering/oxocarbon.nvim",
+  "folke/tokyonight.nvim",
   {
-    "nyoom-engineering/oxocarbon.nvim",
-    priority = 1000,
+    "Shatur/neovim-ayu",
     config = function()
-      vim.cmd.colorscheme 'oxocarbon'
+      local colors = require("ayu.colors")
+      colors.generate()
+
+      require("ayu").setup({
+        overrides = function()
+          return { Comment = { fg = colors.comment } }
+        end
+      })
     end
   },
-  { "folke/tokyonight.nvim", },
-  { "Shatur/neovim-ayu" },
+  {
+    "catppuccin/nvim",
+    config = function()
+      require("catppuccin").setup({
+        no_italic = true,
+        no_bold = true,
+      })
+
+      vim.cmd.colorscheme("catppuccin-mocha")
+    end,
+  },
 
   {
     -- Set lualine as statusline
@@ -131,7 +152,7 @@ require('lazy').setup({
   },
 
   -- "gc" to comment visual regions/lines
-  { 'numToStr/Comment.nvim',  opts = {} },
+  { 'numToStr/Comment.nvim', opts = {} },
 
   -- Fuzzy Finder (files, lsp, etc)
   {
