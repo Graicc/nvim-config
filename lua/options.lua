@@ -57,4 +57,12 @@ end
 vim.opt.foldtext = "v:lua.CustomFoldText()"
 vim.opt.fillchars = { eob = "-", fold = " " }
 
+-- Prevent comments when using o/O on commented line
+vim.api.nvim_create_autocmd("BufEnter", {
+  callback = function()
+    vim.opt.formatoptions:remove({ "c", "o" })
+  end,
+  desc = "Disable New Line Comment",
+})
+
 -- vim: ts=2 sts=2 sw=2 et

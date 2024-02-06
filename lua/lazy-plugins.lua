@@ -222,6 +222,30 @@ require('lazy').setup({
     },
   },
 
+  -- -- Java
+  -- {
+  --   'nvim-java/nvim-java',
+  --   dependencies = {
+  --     'nvim-java/lua-async-await',
+  --     'nvim-java/nvim-java-core',
+  --     'nvim-java/nvim-java-test',
+  --     'nvim-java/nvim-java-dap',
+  --     'MunifTanjim/nui.nvim',
+  --     'neovim/nvim-lspconfig',
+  --     'mfussenegger/nvim-dap',
+  --     {
+  --       'williamboman/mason.nvim',
+  --       opts = {
+  --         registries = {
+  --           'github:nvim-java/mason-registry',
+  --           'github:mason-org/mason-registry',
+  --         },
+  --       },
+  --     }
+  --   },
+  -- },
+
+
   -- NOTE: The import below can automatically add your own plugins, configuration, etc from `lua/custom/plugins/*.lua`
   --    You can use this folder to prevent any conflicts with this init.lua if you're interested in keeping
   --    up-to-date with whatever is in the kickstart repo.

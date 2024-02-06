@@ -78,6 +78,8 @@ require('cmp-setup')
 if vim.g.neovide then
   -- Put anything you want to happen only in Neovide here
   vim.o.guifont = "FiraCode Nerd Font,Fira Code:h12" -- text below applies for VimScript
+  vim.g.neovide_scroll_animation_length = 0
+  vim.g.neovide_scroll_animation_far_lines = 0
 end
 
 -- The line beneath this is called `modeline`. See `:help modeline`
