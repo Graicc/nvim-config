@@ -1,5 +1,5 @@
 -- powershell
-if vim.fn.has('windows') then
+if vim.fn.has('win32') then
 	vim.opt.shell = 'pwsh'
 	vim.opt.shellcmdflag =
 	"-NoLogo -NoProfile -ExecutionPolicy RemoteSigned -Command [Console]::InputEncoding=[Console]::OutputEncoding=[System.Text.Encoding]::UTF8;"
