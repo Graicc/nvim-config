@@ -56,9 +56,6 @@ require('options')
 -- [[ Basic Keymaps ]]
 require('keymaps')
 
--- [[ Configure lazygit]]
-require('lazygit-setup')
-
 -- [[ Configure Telescope ]]
 -- (fuzzy finder)
 require('telescope-setup')

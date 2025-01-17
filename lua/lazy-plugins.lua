@@ -8,17 +8,18 @@ require('lazy').setup({
   -- NOTE: First, some plugins that don't require any configuration
 
   -- Git related plugins
-  'tpope/vim-fugitive',
-  'tpope/vim-rhubarb',
+  { 'tpope/vim-fugitive', lazy = true },
+  { 'tpope/vim-rhubarb',  lazy = true },
 
   -- Detect tabstop and shiftwidth automatically
-  'tpope/vim-sleuth',
+  { 'tpope/vim-sleuth',   lazy = true },
 
   -- NOTE: This is where your plugins related to LSP can be installed.
   --  The configuration is done below. Search for lspconfig to find it below.
   {
     -- LSP Configuration & Plugins
     'neovim/nvim-lspconfig',
+    lazy = true,
     dependencies = {
       -- Automatically install LSPs to stdpath for neovim
       'williamboman/mason.nvim',
@@ -50,11 +51,12 @@ require('lazy').setup({
   },
 
   -- Useful plugin to show you pending keybinds.
-  { 'folke/which-key.nvim',  opts = {} },
+  { 'folke/which-key.nvim',  opts = {}, lazy = true },
 
   {
     -- Adds git related signs to the gutter, as well as utilities for managing changes
     'lewis6991/gitsigns.nvim',
+    lazy = true,
     opts = {
       -- See `:help gitsigns.txt`
       signs = {
@@ -95,6 +97,7 @@ require('lazy').setup({
   'navarasu/onedark.nvim',
   {
     "rebelot/kanagawa.nvim",
+    lazy = true,
     opts = {
       commentStyle = { italic = false },
       keywordStyle = { italic = false },
@@ -105,6 +108,7 @@ require('lazy').setup({
   "folke/tokyonight.nvim",
   {
     "Shatur/neovim-ayu",
+    lazy = true,
     config = function()
       local colors = require("ayu.colors")
       colors.generate()
@@ -118,6 +122,7 @@ require('lazy').setup({
   },
   {
     "catppuccin/nvim",
+    lazy = false,
     config = function()
       require("catppuccin").setup({
         no_italic = true,
@@ -131,6 +136,7 @@ require('lazy').setup({
   {
     -- Set lualine as statusline
     'nvim-lualine/lualine.nvim',
+    lazy = true,
     -- See `:help lualine.txt`
     opts = {
       options = {
@@ -145,6 +151,7 @@ require('lazy').setup({
   {
     -- Add indentation guides even on blank lines
     'lukas-reineke/indent-blankline.nvim',
+    lazy = true,
     -- Enable `lukas-reineke/indent-blankline.nvim`
     -- See `:help ibl`
     main = 'ibl',
@@ -152,11 +159,12 @@ require('lazy').setup({
   },
 
   -- "gc" to comment visual regions/lines
-  { 'numToStr/Comment.nvim', opts = {} },
+  { 'numToStr/Comment.nvim', opts = {}, lazy = true },
 
   -- Fuzzy Finder (files, lsp, etc)
   {
     'nvim-telescope/telescope.nvim',
+    lazy = true,
     branch = '0.1.x',
     dependencies = {
       'nvim-lua/plenary.nvim',
@@ -178,6 +186,7 @@ require('lazy').setup({
   {
     -- Highlight, edit, and navigate code
     'nvim-treesitter/nvim-treesitter',
+    lazy = true,
     dependencies = {
       'nvim-treesitter/nvim-treesitter-textobjects',
     },
@@ -192,6 +201,7 @@ require('lazy').setup({
 
   {
     "windwp/nvim-autopairs",
+    lazy = true,
     event = "InsertEnter",
     opts = {} -- this is equalent to setup({}) function
   },
@@ -199,6 +209,7 @@ require('lazy').setup({
   -- File browser
   {
     'stevearc/oil.nvim',
+    lazy = true,
     opts = {},
     -- Optional dependencies
     dependencies = { "nvim-tree/nvim-web-devicons" },
